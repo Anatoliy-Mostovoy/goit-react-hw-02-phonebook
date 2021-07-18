@@ -1,0 +1,11 @@
+.title {
+  color: yellowgreen;
+}
+
+.input {
+  cursor: pointer;
+  color: green;
+}
+.input:hover {
+  transform: scale(1.1);
+}
