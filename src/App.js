@@ -11,6 +11,15 @@ export class App extends Component {
   };
 
   getSubmitData = data => {
+    if (
+      this.state.contacts.find(
+        contact => contact.name.toLowerCase() === data.name.toLowerCase(),
+      )
+    ) {
+      alert('error');
+      return;
+    }
+
     this.setState(prevState => {
       return { contacts: [...prevState.contacts, data] };
     });
@@ -34,8 +43,9 @@ export class App extends Component {
       <>
         <h1>PhoneBook</h1>
         <Form submitMethod={this.getSubmitData} />
-        <Contacts contacts={visibleContacts} />
+        <h2>Contacts</h2>
         <Filter value={this.state.filter} onChange={this.changeFilterValue} />
+        <Contacts contacts={visibleContacts} />
       </>
     );
   }

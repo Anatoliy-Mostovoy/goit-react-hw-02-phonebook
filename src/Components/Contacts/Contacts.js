@@ -3,7 +3,6 @@ import s from './Contacts.module.css';
 export const Contacts = ({ contacts }) => {
   return (
     <div>
-      <h2>Contacts</h2>
       <ul>
         {contacts.map(contact => {
           return (

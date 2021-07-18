@@ -26,9 +26,9 @@ export class Form extends Component {
   render() {
     return (
       <div>
-        <h2 className={s.title}>Name</h2>
         <form onSubmit={this.handleSubmit}>
           <label className={s.label} htmlFor={this.uniqId}>
+            Name
             <input
               className={s.input}
               type="text"
@@ -41,8 +41,9 @@ export class Form extends Component {
               id={uuidv4()}
             />
           </label>
-          <h2>Number</h2>
+
           <label>
+            Number
             <input
               type="tel"
               name="number"
