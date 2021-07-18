@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 import s from './Form.module.css';
 
 export class Form extends Component {
+  static propTypes = {
+    submitMethod: PropTypes.func.isRequired,
+  };
   state = { name: '', number: '', id: '' };
 
   uniqId = uuidv4();
@@ -25,12 +28,12 @@ export class Form extends Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <label className={s.label} htmlFor={this.uniqId}>
+      <div className={s.Container}>
+        <form className={s.Form} onSubmit={this.handleSubmit}>
+          <label className={s.Label} htmlFor={this.uniqId}>
             Name
             <input
-              className={s.input}
+              className={s.Input}
               type="text"
               name="name"
               pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -46,6 +49,7 @@ export class Form extends Component {
             Number
             <input
               type="tel"
+              className={s.Input}
               name="number"
               pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
               title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"

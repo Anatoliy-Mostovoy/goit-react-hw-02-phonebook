@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Form } from './Components/Form/Form';
 import { Contacts } from './Components/Contacts/Contacts';
 import { Filter } from './Components/Filter/Filter';
-// import s from './App.module.css';
+import s from './App.module.css';
 
 export class App extends Component {
   state = {
@@ -36,16 +36,25 @@ export class App extends Component {
     );
   };
 
+  handelDelete = data => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact => contact.id !== data),
+    }));
+  };
+
   render() {
     const visibleContacts = this.getVisibleContacts();
 
     return (
       <>
-        <h1>PhoneBook</h1>
+        <h1 className={s.Title}>PhoneBook</h1>
         <Form submitMethod={this.getSubmitData} />
-        <h2>Contacts</h2>
+        <h2 className={s.Title}>Contacts</h2>
         <Filter value={this.state.filter} onChange={this.changeFilterValue} />
-        <Contacts contacts={visibleContacts} />
+        <Contacts
+          contacts={visibleContacts}
+          deleteFunction={this.handelDelete}
+        />
       </>
     );
   }

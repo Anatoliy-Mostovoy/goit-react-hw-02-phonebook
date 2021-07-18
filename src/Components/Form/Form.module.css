@@ -1,11 +1,26 @@
-.title {
-  color: yellowgreen;
+.Container {
+  width: 200px;
+  padding: 20px;
+  border: 2px solid grey;
+  border-radius: 10px;
+
+  box-shadow: 0 0 15px 4px grey;
+}
+.Form {
+}
+.Label {
+  margin: 0;
+  padding: 0;
 }
 
-.input {
+.Input {
   cursor: pointer;
-  color: green;
+  padding: 10px;
+  margin: 10px 0;
+  border: 2px solid #eee;
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
 }
-.input:hover {
+.Input:hover {
   transform: scale(1.1);
 }
