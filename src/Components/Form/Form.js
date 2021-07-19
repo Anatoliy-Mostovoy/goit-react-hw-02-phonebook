@@ -59,7 +59,9 @@ export class Form extends Component {
               id={uuidv4()}
             />
           </label>
-          <button type="submit">Отправить</button>
+          <button type="submit" className={s.Button}>
+            Отправить
+          </button>
         </form>
       </div>
     );

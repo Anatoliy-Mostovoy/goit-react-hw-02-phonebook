@@ -11,6 +11,7 @@ export const Contacts = ({ contacts, deleteFunction }) => {
             <li className={s.List} key={contact.id}>
               {contact.name}: {contact.number}
               <button
+                className={s.Button}
                 type="button"
                 onClick={() => {
                   deleteFunction(contact.id);
