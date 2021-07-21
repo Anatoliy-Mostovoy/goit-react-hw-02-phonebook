@@ -3,6 +3,8 @@ import { Form } from './Components/Form/Form';
 import { Contacts } from './Components/Contacts/Contacts';
 import { Filter } from './Components/Filter/Filter';
 import s from './App.module.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export class App extends Component {
   state = {
@@ -16,7 +18,7 @@ export class App extends Component {
         contact => contact.name.toLowerCase() === data.name.toLowerCase(),
       )
     ) {
-      alert('error');
+      toast.error('This name is also here!');
       return;
     }
 
@@ -43,6 +45,7 @@ export class App extends Component {
   };
 
   render() {
+    const { filter } = this.state;
     const visibleContacts = this.getVisibleContacts();
 
     return (
@@ -50,11 +53,12 @@ export class App extends Component {
         <h1 className={s.Title}>PhoneBook</h1>
         <Form submitMethod={this.getSubmitData} />
         <h2 className={s.Title}>Contacts</h2>
-        <Filter value={this.state.filter} onChange={this.changeFilterValue} />
+        <Filter value={filter} onChange={this.changeFilterValue} />
         <Contacts
           contacts={visibleContacts}
           deleteFunction={this.handelDelete}
         />
+        <ToastContainer />
       </>
     );
   }
